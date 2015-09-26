@@ -6,14 +6,14 @@ module.exports = function() {
 	var userService = require('../services/user-service');
 
 	passport.use(new TwitterStrategy({
-		consumerKey: process.env.TWITTER_CONSUMER_KEY || 'this is not a key',
-		consumerSecret: process.env.TWITTER_CONSUMER_SECRET || 'this is not a key',
+		consumerKey: process.env.TWITTER_CONSUMER_KEY,
+		consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
 		callbackUrl: 'http://127.0.0.1:3000/auth/twitter/callback'
 	}, function(token, tokenSecret, profile, done) {
-		userService.findUser(profile.id, function(err, user) {
+		userService.findUserById(profile.id, function(err, user) {
 			if (err) { return done(err, null); }
 			if (user) { return done(err, user); }
-			userService.createUser(profile, function(err) {
+			userService.createUser(profile, token, tokenSecret, function(err) {
 				if (err) { return done(err); }
 				return done(null);
 			});
@@ -25,7 +25,7 @@ module.exports = function() {
 	});
 
 	passport.deserializeUser(function(userID, next) {
-		userService.findUser(userID, function(err, user) {
+		userService.findUserById(userID, function(err, user) {
 			next(err, user);
 		});
 	});
