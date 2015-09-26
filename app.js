@@ -14,6 +14,7 @@ var bodyParser = require('body-parser');
 
 var config = require('./config/config');
 var passportConfig = require('./auth/passport-config');
+var restrict = require('./auth/restrict');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -55,8 +56,8 @@ app.use(passport.session());
 
 app.use('/', routes);
 app.use('/auth', auth);
-app.use('/twitter', twitter);
 app.use('/users', users);
+app.use('/twitter', restrict, twitter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
