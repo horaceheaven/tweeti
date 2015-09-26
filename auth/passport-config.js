@@ -11,7 +11,7 @@ module.exports = function() {
 		callbackUrl: 'http://127.0.0.1:3000/auth/twitter/callback'
 	}, function(token, tokenSecret, profile, done) {
 		userService.findUser(profile.id, function(err, user) {
-			if (err) { return done(err, user); }
+			if (err) { return done(err, null); }
 			if (user) { return done(err, user); }
 			userService.createUser(profile, function(err) {
 				if (err) { return done(err); }
