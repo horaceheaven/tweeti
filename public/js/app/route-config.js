@@ -13,6 +13,11 @@
 				templateUrl: '/js/app/index/index.html',
 				controller: 'IndexController',
 				controllerAs: 'vm'
+			})
+			.when('/post', {
+				templateUrl: '/js/app/post/post.html',
+				controller: 'PostController',
+				controllerAs: 'vm'
 			});
 	}
 

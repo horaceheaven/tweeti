@@ -1,38 +1,51 @@
 'use strict';
 
+var util = require('util');
 var kue = require('kue');
 var express = require('express');
 var router = express.Router();
 
 var userService = require('../services/user-service');
 
-var jobs = kue.createQueue();
+var queue = kue.createQueue();
 
-router.post('/post', function (req, res) {
-    userService.findUserById(req.user.id, function(err, user) {
-        if (err) {
-            res.status(500).jsonp({ 'response': 'error while finding user' });
-        }
+router.post('/schedule', function (req, res) {
+    req.checkBody('status').notEmpty();
+    req.checkBody('postDate').notEmpty().isInt();
 
-        if (user) {
-            jobs.create('tweet', {
-                title: 'post to twitter',
-                consumerKey: process.env.TWITTER_CONSUMER_KEY,
-                consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-                accessTokenKey: user.accessTokenKey,
-                accessTokenSecret: user.accessTokenSecret,
-                status: req.body.status
-            })
-            .delay(5000)
+    var errors = req.validationErrors();
+
+    if(errors) {
+        res.send(util.inspect(errors), 400);
+        return;
+    }
+
+    if (req.user) {
+        var now = Date().now;
+        var postDateTime = new Date(req.body.postDate);
+
+        queue.create('tweet', {
+            title: 'Tweet by ' + req.user.username + ' '+ postDateTime,
+            consumerKey: process.env.TWITTER_CONSUMER_KEY,
+            consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+            accessTokenKey: req.user.accessTokenKey,
+            accessTokenSecret: req.user.accessTokenSecret,
+            status: req.body.status
+        })
+            .delay(postDateTime - now)
+            .attempts(3)
+            .backoff({ delay: 6000, type: 'exponential' })
             .priority('high')
-            .save();
+            .save(function (err) {
+                if (err) {
+                    res.status(500).jsonp({ 'response': 'failed to schedule tweet' });
+                }
+                res.status(200).jsonp({ 'response': 'tweet scheduled successfully' });
+            });
 
-            // TODO wrap in success case for job
-            res.status(200).jsonp({ 'response': 'tweet scheduled successfully' });
-        } else {
-            res.status(404).jsonp({ 'response': 'user not found' });
-        }
-    });
+    } else {
+        res.status(401).jsonp({ 'response': 'user not found' });
+    }
 });
 
 module.exports = router;
