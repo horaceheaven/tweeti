@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express');
+var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
 var connectMongo = require('connect-mongo');
 var path = require('path');
@@ -38,6 +39,7 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -1,5 +1,6 @@
 'use strict';
 
+var util = require('util');
 var kue = require('kue');
 var express = require('express');
 var router = express.Router();
@@ -8,7 +9,17 @@ var userService = require('../services/user-service');
 
 var jobs = kue.createQueue();
 
-router.post('/post', function (req, res) {
+router.post('/schedule', function (req, res) {
+    req.checkBody('status').notEmpty();
+    req.checkBody('postDate').notEmpty().isInt();
+
+    var errors = req.validationErrors();
+
+    if(errors) {
+        res.send(util.inspect(errors), 400);
+        return;
+    }
+
     userService.findUserById(req.user.id, function(err, user) {
         if (err) {
             res.status(500).jsonp({ 'response': 'error while finding user' });
