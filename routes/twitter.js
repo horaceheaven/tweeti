@@ -5,8 +5,6 @@ var kue = require('kue');
 var express = require('express');
 var router = express.Router();
 
-var userService = require('../services/user-service');
-
 var queue = kue.createQueue();
 
 router.post('/schedule', function (req, res) {
