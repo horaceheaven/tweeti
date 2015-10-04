@@ -12,13 +12,18 @@
 
     function tweetFactory ($http) {
         return {
-            scheduleTweet: scheduleTweet
+            scheduleTweet: scheduleTweet,
+            scheduleTweetNow: scheduleTweetNow
         };
 
         function scheduleTweet (status, dateTime) {
             var data = { "status": status, "postDate": dateTime };
 
             return $http.post('/twitter/schedule', data);
+        };
+
+        function scheduleTweetNow (status) {
+            return this.scheduleTweet(status, Date.now());
         };
     };
 }());
