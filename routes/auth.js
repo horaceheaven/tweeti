@@ -8,10 +8,15 @@ var router = express.Router();
 router.get('/twitter', passport.authenticate('twitter'));
 
 router.get('/twitter/callback', passport.authenticate('twitter', { 
-	failureRedirect: '/users/login',
-	successRedirect: '/',
+	failureRedirect: '/#/',
+	successRedirect: '/#/post',
 	failureFlash: 'Invalid credentials' 
 }));
+
+router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/#/');
+});
 
 router.get('/isauth', function (req, res) {
     if (req.isAuthenticated()) {
