@@ -15,8 +15,8 @@
 				controllerAs: 'vm'
 			})
 			.when('/post', {
-				templateUrl: '/js/app/post/post.html',
-				controller: 'PostController',
+				templateUrl: '/js/app/tweet/tweet.html',
+				controller: 'TweetController',
 				controllerAs: 'vm'
 			});
 	}
