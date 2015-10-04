@@ -11,7 +11,7 @@ gulp.task('start', function() {
 	nodemon({
 		script: 'bin/www',
 		ext: 'js',
-		tasks: ['lint', 'test'],
+		tasks: ['lint'],
 		env: { 'NODE_ENV': 'development' }
 	});
 });
