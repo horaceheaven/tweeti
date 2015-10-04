@@ -8,9 +8,16 @@
     TweetController.$inject = ['tweetService'];
 
     function TweetController(tweetService) {
-        tweetService.scheduleTweetNow('test').then(function(response) {
-            console.log(response.data);
-            console.log(response.status);
-        });
+        var vm = this;
+
+        vm.tweet = "";
+
+        vm.scheduleTweet = function(tweet, postDateTime) {
+            tweetService.scheduleTweetNow(tweet, postDateTime);
+        };
+
+        vm.scheduleTweetNow = function(tweet) {
+            tweetService.scheduleTweetNow(tweet);
+        };
     }
 }());

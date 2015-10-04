@@ -2,7 +2,7 @@
     <form>
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">@</span>
-            <input type="text" class="form-control input-lg" placeholder="Type your tweet here..."
+            <input ng-model="vm.tweet" type="text" class="form-control input-lg" placeholder="Type your tweet here..."
                    aria-describedby="basic-addon1"/>
         </div>
         <div class="btn-group">
@@ -13,8 +13,8 @@
                 <span class="sr-only">Add to Queue</span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdown-menu1">
-                <li><a href="#">Tweet Now</a></li>
-                <li><a href="#">Schedule Tweet</a></li>
+                <li><a ng-href="" ng-click="vm.scheduleTweetNow(vm.tweet)">Tweet Now</a></li>
+                <li><a ng-href="" ng-click="vm.scheduleTweet(vm.tweet, Date.now())">Schedule Tweet</a></li>
             </ul>
         </div>
     </form>
