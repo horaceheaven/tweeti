@@ -20,7 +20,7 @@ gulp.task('test', function () {
 	process.env.TWITTER_CONSUMER_KEY = "this is a test consumer key";
 	process.env.TWITTER_CONSUMER_SECRET = "this is a test consumer secret";
 
-	return gulp.src(['tests/api/integration/twitterSpec.js'], { read: false })
+	return gulp.src(['tests/api/integration/*.js'], { read: false })
 		.pipe(mocha({
 			reporter: 'spec'
 		}))
