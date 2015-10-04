@@ -15,9 +15,9 @@ router.get('/twitter/callback', passport.authenticate('twitter', {
 
 router.get('/isauth', function (req, res) {
     if (req.isAuthenticated()) {
-        res.status(200).jsonp({"isAuth": true, "message": "You're authenticated"});
+        res.status(200).jsonp({"isAuth": true, "message": "Authorized"});
     } else {
-        res.status(401).jsonp({"isAuth": false,"message": "You're not authenticated"});
+        res.status(401).jsonp({"isAuth": false,"message": "Unauthorized"});
     }
 });
 
