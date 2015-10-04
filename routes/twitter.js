@@ -14,7 +14,7 @@ router.post('/schedule', function (req, res) {
     var errors = req.validationErrors();
 
     if(errors) {
-        res.send(util.inspect(errors), 400);
+        res.status(400).send(util.inspect(errors));
         return;
     }
 
