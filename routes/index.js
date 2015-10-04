@@ -6,10 +6,10 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	var vm = { 
-		title: 'Express',  
+		title: 'Express',
+		isAuth: req.isAuthenticated(),
 		currentYear: new Date().getFullYear() 
 	};
-	
   	res.render('index', vm);
 });
 

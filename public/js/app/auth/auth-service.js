@@ -17,9 +17,9 @@
 
         function isAuth () {
             return $http.get('/auth/isauth').then(function(response) {
-                return response.status;
+                return response.data;
             }, function(response) {
-                return response.status;
+                return response.data;
             });
         };
     };

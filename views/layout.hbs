@@ -22,7 +22,11 @@
 	  			<div class="collapse navbar-collapse" id="collapse">
 	  				<ul class="nav navbar-nav navbar-right">
 	  					<li class="active"><a href="">Home</a></li>
-	  					<li><a href="/auth/twitter">Login with Twitter</a></li>
+                        {{#if isAuth}}
+                            <li><a href="/auth/twitter">Logout</a></li>
+                        {{else}}
+                            <li><a href="/auth/twitter">Login with Twitter</a></li>
+                        {{/if}}
 	  				</ul>
 	  			</div>{{!-- collapse navbar-collapse --}}
 	  		</div>

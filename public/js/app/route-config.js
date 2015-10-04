@@ -10,8 +10,8 @@
 
     function run($rootScope, $location, authService) {
         $rootScope.$on('$routeChangeStart', function() {
-            authService.isAuth().then(function (status) {
-                if (status === 200) {
+            authService.isAuth().then(function (data) {
+                if (data.isAuth) {
                 } else {
                     $location.path('/');
                 }
