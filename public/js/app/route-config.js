@@ -3,7 +3,21 @@
 
 	angular
 		.module('app')
-		.config(config);
+		.config(config)
+		.run(run);
+
+	run.$inject = ['$rootScope', '$location', 'authService'];
+
+    function run($rootScope, $location, authService) {
+        $rootScope.$on('$routeChangeStart', function() {
+            authService.isAuth().then(function (status) {
+                if (status === 200) {
+                } else {
+                    $location.path('/');
+                }
+            });
+        });
+    };
 
 	config.$inject = ['$routeProvider'];
 

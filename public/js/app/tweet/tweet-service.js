@@ -18,7 +18,6 @@
 
         function scheduleTweet (status, dateTime) {
             var data = { "status": status, "postDate": dateTime };
-
             return $http.post('/twitter/schedule', data);
         };
 

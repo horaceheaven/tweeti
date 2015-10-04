@@ -13,11 +13,15 @@
         vm.tweet = "";
 
         vm.scheduleTweet = function(tweet, postDateTime) {
-            tweetService.scheduleTweetNow(tweet, postDateTime);
+            if (tweet && postDateTime) {
+                tweetService.scheduleTweet(tweet, postDateTime);
+            } else {
+                // TODO: add a flash statement
+            }
         };
 
         vm.scheduleTweetNow = function(tweet) {
-            tweetService.scheduleTweetNow(tweet);
+            vm.scheduleTweet(tweet);
         };
     }
 }());
