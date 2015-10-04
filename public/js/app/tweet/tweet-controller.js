@@ -21,7 +21,7 @@
         };
 
         vm.scheduleTweetNow = function(tweet) {
-            vm.scheduleTweet(tweet);
+            vm.scheduleTweet(tweet, Date.now());
         };
     }
 }());
