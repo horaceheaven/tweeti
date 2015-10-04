@@ -9,13 +9,15 @@
 	run.$inject = ['$rootScope', '$location', 'authService'];
 
     function run($rootScope, $location, authService) {
-        $rootScope.$on('$routeChangeStart', function() {
-            authService.isAuth().then(function (data) {
-                if (data.isAuth) {
-                } else {
-                    $location.path('/');
-                }
-            });
+        $rootScope.$on('$routeChangeStart', function(event, next) {
+            if (next.access && next.access.loginRequired) {
+                authService.isAuth().then(function (data) {
+                    if (data.isAuth) {
+                    } else {
+                        $location.path('/');
+                    }
+                });
+            }
         });
     };
 
@@ -31,7 +33,10 @@
 			.when('/post', {
 				templateUrl: '/js/app/tweet/tweet.html',
 				controller: 'TweetController',
-				controllerAs: 'vm'
+				controllerAs: 'vm',
+                access: {
+                    loginRequired: true
+                }
 			});
 	}
 
