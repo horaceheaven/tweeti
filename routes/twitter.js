@@ -5,7 +5,9 @@ var kue = require('kue');
 var express = require('express');
 var router = express.Router();
 
-var queue = kue.createQueue();
+var queue = kue.createQueue({
+    disableSearch: false
+});
 
 router.post('/schedule', function (req, res) {
     req.checkBody('status').notEmpty();
@@ -24,6 +26,7 @@ router.post('/schedule', function (req, res) {
 
         queue.create('tweet', {
             title: 'Tweet by ' + req.user.username + ' '+ postDateTime,
+            username: req.user.username,
             consumerKey: process.env.TWITTER_CONSUMER_KEY,
             consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
             accessTokenKey: req.user.accessTokenKey,
@@ -34,6 +37,7 @@ router.post('/schedule', function (req, res) {
             .attempts(3)
             .backoff({ delay: 6000, type: 'exponential' })
             .priority('high')
+            .searchKeys( ['username'] )
             .save(function (err) {
                 if (err) {
                     res.status(500).jsonp({ 'response': 'failed to schedule tweet' });
