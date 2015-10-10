@@ -2,10 +2,24 @@
 
 var util = require('util');
 var kue = require('kue');
+var twitterService = require('../services/twitter-service');
 var express = require('express');
 var router = express.Router();
 
-var queue = kue.createQueue();
+var queue = kue.createQueue({
+    disableSearch: false
+});
+
+router.get('/user/schedule', function (req, res) {
+    console.log(JSON.stringify(req.user));
+    if (req.user && req.user.username) {
+        twitterService.getAllUserScheduledTweets(req.user.username).then(function(data) {
+            res.status(200).jsonp(data);
+        });
+    } else {
+        res.status(401).send({ 'response': 'user not found' });
+    }
+});
 
 router.post('/schedule', function (req, res) {
     req.checkBody('status').notEmpty();
@@ -24,6 +38,7 @@ router.post('/schedule', function (req, res) {
 
         queue.create('tweet', {
             title: 'Tweet by ' + req.user.username + ' '+ postDateTime,
+            username: req.user.username,
             consumerKey: process.env.TWITTER_CONSUMER_KEY,
             consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
             accessTokenKey: req.user.accessTokenKey,
@@ -34,6 +49,7 @@ router.post('/schedule', function (req, res) {
             .attempts(3)
             .backoff({ delay: 6000, type: 'exponential' })
             .priority('high')
+            .searchKeys( ['username'] )
             .save(function (err) {
                 if (err) {
                     res.status(500).jsonp({ 'response': 'failed to schedule tweet' });

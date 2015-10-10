@@ -17,12 +17,15 @@
     "express-validator": "^2.17.1",
     "hbs": "~3.1.0",
     "kue": "^0.9.5",
+    "lodash": "^3.10.1",
     "mongoose": "^4.1.7",
     "mongoose-findorcreate": "^0.1.2",
     "morgan": "~1.6.1",
     "passport": "^0.3.0",
     "passport-twitter": "^1.0.3",
+    "q": "^1.4.1",
     "redis": "^2.1.0",
+    "restler": "^3.4.0",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
