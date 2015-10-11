@@ -1,21 +1,25 @@
-<!--<div class="row">-->
-    <form>
-        <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">@</span>
-            <input ng-model="vm.tweet" type="text" class="form-control input-lg" placeholder="Type your tweet here..."
-                   aria-describedby="basic-addon1"/>
-        </div>
-        <div class="btn-group">
-            <button type="button" class="btn btn-default btn-lg">Add to Queue</button>
-            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" id="dropdown-menu1"
-                    aria-haspopup="true" aria-expanded="false">
-                <span class="caret"></span>
-                <span class="sr-only">Add to Queue</span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdown-menu1">
-                <li><a ng-click="vm.scheduleTweetNow(vm.tweet)">Tweet Now</a></li>
-                <li><a ng-click="vm.scheduleTweet(vm.tweet, Date.now())">Schedule Tweet</a></li>
-            </ul>
-        </div>
-    </form>
-<!--</div>-->
+<form>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input ng-model="vm.tweet" type="text" class="form-control input-lg" placeholder="Type your tweet here..."
+               aria-describedby="basic-addon1"/>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default btn-lg">Add to Queue</button>
+        <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" id="dropdown-menu1"
+                aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Add to Queue</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-menu1">
+            <li><a ng-click="vm.scheduleTweetNow(vm.tweet); vm.getScheduledTweets();">Tweet Now</a></li>
+            <li><a ng-click="vm.scheduleTweet(vm.tweet, Date.now()); vm.getScheduledTweets();">Schedule Tweet</a></li>
+        </ul>
+    </div>
+</form>
+<div class="list-group">
+    <a ng-repeat="tweet in vm.listOfScheduledTweets" ng-href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">{{tweet.state}}</h4>
+        <p class="list-group-item-text">{{tweet.data.status}}</p>
+    </a>
+</div>

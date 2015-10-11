@@ -23,5 +23,14 @@
         vm.scheduleTweetNow = function(tweet) {
             vm.scheduleTweet(tweet, Date.now());
         };
+
+        vm.getScheduledTweets = function() {
+            tweetService.getScheduledTweets().then(function(data) {
+                console.log(JSON.stringify(data.data));
+                vm.listOfScheduledTweets = data.data;
+            });
+        };
+
+        vm.getScheduledTweets();
     }
 }());
