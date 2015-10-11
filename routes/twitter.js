@@ -11,7 +11,6 @@ var queue = kue.createQueue({
 });
 
 router.get('/user/schedule', function (req, res) {
-    console.log(JSON.stringify(req.user));
     if (req.user && req.user.username) {
         twitterService.getAllUserScheduledTweets(req.user.username).then(function(data) {
             res.status(200).jsonp(data);

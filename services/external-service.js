@@ -11,11 +11,11 @@ var validateRequest = function(restler) {
 
     restler.on('success', defer.resolve);
     restler.on('fail', function(data, response) {
-        console.log('request failed with', data);
+        console.log('request failed with', data, 'response', response);
         defer.reject(data);
     });
     restler.on('error', function(err, response) {
-        console.log('request error with', err);
+        console.log('request error with', err, 'response', response);
         defer.reject(err);
     });
 
@@ -23,6 +23,7 @@ var validateRequest = function(restler) {
 };
 
 self.get = function(url, options) {
+    console.log('making request to', url, 'with options', options);
     var defer = Q.defer();
     var promise = defer.promise;
     if (url) {
