@@ -22,11 +22,20 @@ self.getJobInfoByJobID = function(jobID) {
     var url = uriConst.queue.URI +':'+ uriConst.queue.port + uriConst.queue.job + jobID;
     console.log('getting job info by job id using url', url);
     httpService.get(url)
-        .then(function(data) {
-            console.log('got job info for ID', jobID, JSON.stringify(data));
-            defer.resolve(data);
+        .then(function(jobInfo) {
+            console.log('got job info for ID', jobID, JSON.stringify(jobInfo));
+            self.filterJobInfo(jobInfo);
+            defer.resolve(jobInfo);
         }, defer.reject);
     return defer.promise;
+};
+
+self.filterJobInfo = function(jobInfo) {
+    if (!_.isEmpty(jobInfo) && _.isObject(jobInfo)
+        && !_.isEmpty(jobInfo.data) && _.isObject(jobInfo.data)) {
+        delete jobInfo.data.consumerKey;
+        delete jobInfo.data.consumerSecret;
+    }
 };
 
 self.getAllJobInfoByJobIDs = function(jobIDList) {

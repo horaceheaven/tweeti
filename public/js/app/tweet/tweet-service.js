@@ -13,7 +13,8 @@
     function tweetFactory ($http) {
         return {
             scheduleTweet: scheduleTweet,
-            scheduleTweetNow: scheduleTweetNow
+            scheduleTweetNow: scheduleTweetNow,
+            getScheduledTweets: getScheduledTweets
         };
 
         function scheduleTweet (status, dateTime) {
@@ -24,5 +25,9 @@
         function scheduleTweetNow (status) {
             return this.scheduleTweet(status, Date.now());
         };
+
+        function getScheduledTweets() {
+            return $http.get('/twitter/user/schedule');
+        }
     };
 }());
