@@ -13,7 +13,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var config = require('./config/config');
+var config = require('./config/config').get(process.env.NODE_ENV);
 var passportConfig = require('./auth/passport-config');
 var restrict = require('./auth/restrict');
 
