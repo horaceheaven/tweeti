@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express');
+var compression = require('compression');
 var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
 var connectMongo = require('connect-mongo');
@@ -34,6 +35,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(compression());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
