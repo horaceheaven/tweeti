@@ -1,0 +1,24 @@
+{
+  "name": "tweeti",
+  "version": "0.0.0",
+  "homepage": "https://github.com/horaceheaven/tweeti",
+  "authors": [
+    "horaceheaven <hheaven@medullan.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-route": "~1.4.6",
+    "bootstrap": "~3.3.5",
+    "bootstrap-social": "~4.10.1",
+    "font-awesome": "fontawesome#~4.4.0"
+  }
+}
