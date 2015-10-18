@@ -8,13 +8,14 @@
         .module('app')
         .factory('tweetService', tweetFactory);
 
-    tweetFactory.$inject = ['$http'];
+    tweetFactory.$inject = ['$http', '$window'];
 
-    function tweetFactory ($http) {
+    function tweetFactory ($http, $window) {
         return {
             scheduleTweet: scheduleTweet,
             scheduleTweetNow: scheduleTweetNow,
-            getScheduledTweets: getScheduledTweets
+            getScheduledTweets: getScheduledTweets,
+            twitterSignIn: twitterSignIn
         };
 
         function scheduleTweet (status, dateTime) {
@@ -28,6 +29,10 @@
 
         function getScheduledTweets() {
             return $http.get('/twitter/user/schedule');
-        }
+        };
+
+        function twitterSignIn() {
+            return $window.location.href = '/auth/twitter';
+        };
     };
 }());

@@ -24,11 +24,13 @@
 	  			</div>{{!-- navbar header --}}
 	  			<div class="collapse navbar-collapse" id="collapse">
 	  				<ul class="nav navbar-nav navbar-right">
-	  					<li class="active"><a href="">Home</a></li>
+	  					<li class="active"><a href="/#/"><i class="fa fa-home"></i> Home</a></li>
                         {{#if isAuth}}
-                            <li><a href="/auth/logout">Logout</a></li>
+                            <li><a href="/auth/logout"><i class="fa fa-twitter"></i> Logout</a></li>
                         {{else}}
-                            <li><a href="/auth/twitter">Login with Twitter</a></li>
+                            <li><a href="/auth/twitter"><i class="fa fa-twitter"></i>
+                                Sign-In with Twitter
+                            </a></li>
                         {{/if}}
 	  				</ul>
 	  			</div>{{!-- collapse navbar-collapse --}}

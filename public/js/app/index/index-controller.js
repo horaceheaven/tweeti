@@ -5,6 +5,13 @@
 		.module('app')
 		.controller('IndexController', IndexController);
 
-	function IndexController() {
+	IndexController.$inject = ['tweetService'];
+
+	function IndexController(tweetService) {
+		var vm = this;
+
+		vm.twitterSignIn = function() {
+			tweetService.twitterSignIn();
+		};
 	}
 }());
