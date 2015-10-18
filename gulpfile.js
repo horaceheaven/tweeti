@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var install = require('gulp-install');
 var nodemon = require('gulp-nodemon');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
@@ -33,4 +34,9 @@ gulp.task('lint', function() {
 	return gulp.src(['*.js', 'routes/*.js'])
 		.pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('install', function() {
+	return gulp.src(['./package.json', './bower.json'])
+		.pipe(install());
 });
