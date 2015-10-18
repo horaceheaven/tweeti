@@ -103,15 +103,15 @@ div .landing-area-heading {
     margin: 10px;
 }
 
-.btn {
+.btn-twitter-sign-in {
     margin-top: 50px;
     border-radius: 50px;
-    height: 70px;
-    width: 400px;
-    text-align: center;
-    font-size: 20px;
     background-color: #55ACEE;
     border-color: #55ACEE;
+    font-size: 20px;
+    width: 400px;
+    height: 70px;
+    text-align: center;
     color: #ffffff;
     font-weight: 100;
 }
