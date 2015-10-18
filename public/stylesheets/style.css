@@ -116,6 +116,10 @@ div .landing-area-heading {
     font-weight: 100;
 }
 
+.btn-twitter-sign-in:hover {
+    color: #ffffff;
+}
+
 /* End of Landing Page Styles */
 
 @media only screen and (max-width: 768px) {
