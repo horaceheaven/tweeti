@@ -6,44 +6,146 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Abel', sans-serif;
-	font-weight: 100;
-	margin: 0;
+  font-family: 'Abel', sans-serif;
+  font-weight: 100;
+  margin: 0;
+}
+
+/* Start of Header */
+header .navbar {
+    padding: 30px 0;
+}
+
+header .navbar-default {
+    background-color: #000000;
+    border: none;
+    margin: 0;
+}
+
+header .navbar-default .navbar-nav a {
+    color: #ffffff;
+    padding: 5px 8px;
+}
+
+header .navbar-default .navbar-nav a:hover {
+    color: #ffffff;
+}
+
+header .navbar-default .navbar-nav .active a {
+    font-weight: 700;
+    color: #ffffff;
+    background: transparent;
+    text-shadow: none;
+}
+
+header .navbar-default .navbar-nav .active a:hover {
+    color: #ffffff;
+    background: transparent;
+    text-shadow: none;
+}
+
+header .navbar-brand {
+    position: relative;
 }
 
 header .navbar-brand h1 {
-  color: #000;
-  margin: 0px;
-  font-size: 1.8em;
-  padding-left: 105px;
+    color: #ffffff;
+    margin: 0px;
+    font-size: 1.8em;
+    font-weight: bold;
 }
 
 header .navbar-toggle {
   background-color: #000000;
 }
 
+header .navbar-default .navbar-toggle:hover {
+    background-color: #000000;
+}
+
+header .navbar-default .navbar-toggle:focus {
+    background-color: #000000;
+}
+
+header .navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+/* End of Header */
+
+/* Start of Landing Page Styles */
 div .landing-area {
-  position: relative;
-  height: 400px;
-  background-color: #000000;
-  color: #ffffff;
-  text-align: center;
+    position: relative;
+    height: 660px;
+    color: #ffffff;
+    text-align: center;
+    background-image: url("../images/city-balcony.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 0px;
 }
 
 div .landing-area h2, h4 {
-  vertical-align: middle;
+    position: relative;
+    margin-top: 6%;
+    text-align: center;
 }
 
-.btn-social {
-  top: 50%;
+div .landing-area-heading {
+    font-weight: bold;
+    font-size: 3em;
+    margin: 10px;
 }
 
-.btn-block {
-  width: 100%;
+.landing-area-sub-heading {
+    font-style: italic;
+    font-size: 1em;
+    margin: 10px;
 }
+
+.btn {
+    margin-top: 50px;
+    border-radius: 50px;
+    height: 70px;
+    width: 400px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #55ACEE;
+    border-color: #55ACEE;
+    color: #ffffff;
+    font-weight: 100;
+}
+
+/* End of Landing Page Styles */
 
 @media only screen and (max-width: 768px) {
-  header .navbar-collapse.in {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+    header .navbar-collapse.in {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    div .landing-area {
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    div .landing-area {
+        height: 550px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    div .landing-area {
+        height: 660px;
+    }
+}
+
+div .footer-area {
+    padding: 30px 0px;
+    margin: 0px;
+}
+
+footer .navbar-default {
+    background-color: #ffffff;
+    border: none;
+    margin: 0;
 }
