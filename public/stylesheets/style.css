@@ -10,3 +10,40 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 100;
 	margin: 0;
 }
+
+header .navbar-brand h1 {
+  color: #000;
+  margin: 0px;
+  font-size: 1.8em;
+  padding-left: 105px;
+}
+
+header .navbar-toggle {
+  background-color: #000000;
+}
+
+div .landing-area {
+  position: relative;
+  height: 400px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+}
+
+div .landing-area h2, h4 {
+  vertical-align: middle;
+}
+
+.btn-social {
+  top: 50%;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  header .navbar-collapse.in {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
