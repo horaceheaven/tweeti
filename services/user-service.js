@@ -6,12 +6,15 @@ exports.createUser = function(user, token, tokenSecret, next) {
 	var newUser = new User({
 		id: user.id,
 		username: user.username,
+		photos: user.photos,
 		accessTokenKey: token,
 		accessTokenSecret: tokenSecret,
 		displayName: user.displayName,
-		provider: user.provider
+		provider: user.provider,
+		rawJson: user['_json']
 	});
 
+	console.log(JSON.stringify(newUser))
 	newUser.save(function(err) {
 		if (err) { return next(err); }
 		next(null);

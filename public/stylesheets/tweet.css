@@ -1,5 +1,5 @@
 .tweet-count {
-    margin: 10px;
+    margin: 10px 25px;
     position: relative;
     font-size: 0.7em;
 }
@@ -17,6 +17,29 @@
 }
 
 .tweet-handle {
-    /*color: #ffffff;*/
-    font-weight: 1em;
+    /*font-size: 1em;*/
+}
+
+.tweet-profile-img {
+    margin: 10px 10px 10px 50px;
+    border-radius: 30px;
+}
+
+.tweet-header-container {
+    background-color: #55ACEE;
+}
+
+.tweet-header-title {
+    position: relative;
+    margin: 10px;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bolder;
+}
+
+.tweet-scheduled {
+    position: relative;
+    margin: 10px 15px;
+    color: #ffffff;
+    text-align: left;
 }

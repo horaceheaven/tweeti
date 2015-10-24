@@ -1,26 +1,39 @@
-<form name="tweetForm">
-    <div class="input-group tweet-input-field">
-        <span class="input-group-addon tweet-handle" id="basic-addon1">@{{'horaceheaven'}}</span>
-        <textarea name="tweet" ng-model="vm.tweet" ng-minlength="1" ng-maxlength="120" ng-change="" required type="text" class="form-control input-lg" placeholder="Type your tweet here..."
-               aria-describedby="basic-addon1"/>
+<div class="row tweet-header-container">
+    <div class="col-sm-1">
+        <img class="tweet-profile-img" ng-src="{{vm.userPhoto}}"/>
     </div>
-    <div>
-        <p class="tweet-count" ng-class="{red: tweetForm.tweet.$viewValue.length > 120}">
-            {{ 120 - tweetForm.tweet.$viewValue.length }} characters remaining</p>
+    <div class="col-sm-11">
+        <h4 class="tweet-header-title">Your Tweet Dash Board</h4>
+        <h6 class="tweet-scheduled">You have {{'0'}} posts scheduled</h6>
     </div>
-    <div class="btn-group tweet-btn">
-        <button  ng-disabled="!tweetForm.tweet.$valid" type="button" class="btn btn-default btn-lg">Add to Queue</button>
-        <button ng-disabled="!tweetForm.tweet.$valid" type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" id="dropdown-menu1"
-                aria-haspopup="true" aria-expanded="false">
-            <span class="caret"></span>
-            <span class="sr-only">Add to Queue</span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdown-menu1">
-            <li><a ng-click="vm.scheduleTweetNow(vm.tweet); vm.getScheduledTweets();">Tweet Now</a></li>
-            <li><a ng-click="vm.scheduleTweet(vm.tweet, Date.now()); vm.getScheduledTweets();">Schedule Tweet</a></li>
-        </ul>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <form name="tweetForm">
+            <div class="input-group tweet-input-field">
+                <span class="input-group-addon tweet-handle" id="basic-addon1">@{{vm.username}}</span>
+            <textarea name="tweet" ng-model="vm.tweet" ng-minlength="1" ng-maxlength="120" ng-change="" required type="text" class="form-control input-lg" placeholder="Type your tweet here..."
+                      aria-describedby="basic-addon1"/>
+            </div>
+            <div>
+                <p class="tweet-count" ng-class="{red: tweetForm.tweet.$viewValue.length > 120}">
+                    {{ 120 - tweetForm.tweet.$viewValue.length }} characters remaining</p>
+            </div>
+            <div class="btn-group tweet-btn">
+                <button  ng-disabled="!tweetForm.tweet.$valid" type="button" class="btn btn-default btn-lg">Add to Queue</button>
+                <button ng-disabled="!tweetForm.tweet.$valid" type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" id="dropdown-menu1"
+                        aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Add to Queue</span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdown-menu1">
+                    <li><a ng-click="vm.scheduleTweetNow(vm.tweet); vm.getScheduledTweets();">Tweet Now</a></li>
+                    <li><a ng-click="vm.scheduleTweet(vm.tweet, Date.now()); vm.getScheduledTweets();">Schedule Tweet</a></li>
+                </ul>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 <div class="list-group tweet-list-view">
     <a ng-repeat="tweet in vm.listOfScheduledTweets" ng-href="#" class="list-group-item">
         <h4 class="list-group-item-heading">{{tweet.state}}</h4>
