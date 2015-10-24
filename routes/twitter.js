@@ -40,9 +40,10 @@ router.post('/schedule', function (req, res) {
     }
 
     if (req.user) {
-        var now = Date().now;
+        var now = Date.now();
         var postDateTime = new Date(req.body.postDate);
-
+        var scheduleDuration = postDateTime - now;
+        console.log('about to schedule tweet for duration', scheduleDuration);
         queue.create('tweet', {
             title: 'Tweet by ' + req.user.username + ' '+ postDateTime,
             username: req.user.username,
@@ -52,7 +53,7 @@ router.post('/schedule', function (req, res) {
             accessTokenSecret: req.user.accessTokenSecret,
             status: req.body.status
         })
-            .delay(postDateTime - now)
+            .delay(scheduleDuration)
             .attempts(3)
             .backoff({ delay: 6000, type: 'exponential' })
             .priority('high')
