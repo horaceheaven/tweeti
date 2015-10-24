@@ -10,13 +10,21 @@ var queue = kue.createQueue({
     disableSearch: false
 });
 
+router.get('/user', function(req, res) {
+    if (req.isAuthenticated()) {
+        res.status(200).jsonp(req.user);
+    } else {
+        res.status(401).send({ 'response': 'Unauthorized' });
+    }
+});
+
 router.get('/user/schedule', function (req, res) {
     if (req.user && req.user.username) {
         twitterService.getAllUserScheduledTweets(req.user.username).then(function(data) {
             res.status(200).jsonp(data);
         });
     } else {
-        res.status(401).send({ 'response': 'user not found' });
+        res.status(401).send({ 'response': 'Unauthorized' });
     }
 });
 
@@ -57,7 +65,7 @@ router.post('/schedule', function (req, res) {
             });
 
     } else {
-        res.status(401).jsonp({ 'response': 'user not found' });
+        res.status(401).jsonp({ 'response': 'Unauthorized' });
     }
 });
 
