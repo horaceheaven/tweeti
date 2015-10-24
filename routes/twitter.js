@@ -10,6 +10,8 @@ var queue = kue.createQueue({
     disableSearch: false
 });
 
+// TODO refactor response objects into http contants
+
 router.get('/user', function(req, res) {
     if (req.isAuthenticated()) {
         res.status(200).jsonp(req.user);
@@ -20,8 +22,10 @@ router.get('/user', function(req, res) {
 
 router.get('/user/schedule', function (req, res) {
     if (req.user && req.user.username) {
-        twitterService.getAllUserScheduledTweets(req.user.username).then(function(data) {
+        twitterService.getAllUserScheduledTweetsGroupedByState(req.user.username).then(function(data) {
             res.status(200).jsonp(data);
+        }).catch(function(err) {
+            res.status(500).jsonp({ 'response': 'Internal server error', error: err });
         });
     } else {
         res.status(401).send({ 'response': 'Unauthorized' });
@@ -51,7 +55,8 @@ router.post('/schedule', function (req, res) {
             consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
             accessTokenKey: req.user.accessTokenKey,
             accessTokenSecret: req.user.accessTokenSecret,
-            status: req.body.status
+            status: req.body.status,
+            postDateTime: postDateTime
         })
             .delay(scheduleDuration)
             .attempts(3)
