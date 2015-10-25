@@ -5,9 +5,9 @@
         .module('app')
         .controller('TweetController', TweetController);
 
-    TweetController.$inject = ['tweetService'];
+    TweetController.$inject = ['tweetService', 'authService'];
 
-    function TweetController(tweetService) {
+    function TweetController(tweetService, authService) {
         var vm = this;
 
         vm.tweet = "";
@@ -26,11 +26,20 @@
 
         vm.getScheduledTweets = function() {
             tweetService.getScheduledTweets().then(function(data) {
-                console.log(JSON.stringify(data.data));
-                vm.listOfScheduledTweets = data.data;
+                vm.listOfCompletedScheduledTweets = data && data && data.complete ? data.complete : [];
+                vm.listOfDelayedScheduledTweets = data && data && data.delayed ? data.delayed : [];
             });
         };
 
+        vm.getUserDetails = function() {
+            authService.getUserDetails().then(function(data) {
+                vm.username = data && data.username ? data.username : '';
+                vm.userPhoto = data && data.photos && data.photos.length > 0 ? data.photos[0].value : '';
+                console.log(vm.userPhoto)
+            });
+        };
+
+        vm.getUserDetails();
         vm.getScheduledTweets();
     }
 }());

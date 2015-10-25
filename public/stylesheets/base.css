@@ -1,0 +1,28 @@
+textarea {
+    resize: none;
+}
+
+.form-control {
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: #cccccc;
+    box-shadow: none;
+}
+
+.input-group .form-control {
+    border-radius: 0px;
+}
+
+.input-group-addon {
+    border-radius: 20px;
+}
+
+.input-group-addon {
+    /*background-color: #55ACEE;*/
+}
+
+.red {
+    color: #ff0000;
+}

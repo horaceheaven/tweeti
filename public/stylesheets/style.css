@@ -50,6 +50,8 @@ header .navbar-brand {
 }
 
 header .navbar-brand h1 {
+    position: absolute;
+    top: 0px;
     color: #ffffff;
     margin: 0px;
     font-size: 1.8em;

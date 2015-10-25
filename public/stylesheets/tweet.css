@@ -1,0 +1,95 @@
+.tweet-count {
+    margin: 10px 25px;
+    position: relative;
+    font-size: 0.7em;
+}
+
+.tweet-input-field {
+    margin: 10px;
+}
+
+.tweet-btn {
+    margin: 10px;
+}
+
+.tweet-list-view {
+    margin: 10px;
+}
+
+.tweet-handle {
+    /*font-size: 1em;*/
+}
+
+.tweet-profile-img {
+    position: relative;
+    margin: 10px 10px 10px 50px;
+    border-radius: 30px;
+}
+
+.tweet-header-container {
+    background-color: #55ACEE;
+}
+
+.tweet-header-title {
+    position: relative;
+    margin: 10px;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bolder;
+}
+
+.tweet-scheduled {
+    position: relative;
+    margin: 10px 15px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.tweet-list-group-item-heading {
+    position: relative;
+    margin: 10px;
+    text-align: left;
+    font-size: xx-small;
+}
+
+.tweet-list-group-item-text {
+    position: relative;
+    margin: 10px;
+    text-align: left;
+    font-size: medium;
+}
+
+.tweet-schedule-scheduled-title {
+    position: relative;
+    margin: 5px;
+    text-align: center;
+    font-size: medium;
+    color: #cccccc;
+    font-weight: bold;
+}
+
+.tweet-schedule-completed-title {
+    position: relative;
+    margin: 5px;
+    text-align: center;
+    font-size: medium;
+    color: #cccccc;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+    .tweet-profile-img {
+        position: relative;
+        display: block;
+        margin: auto;
+    }
+    .tweet-header-title {
+        position: relative;
+        text-align: center;
+    }
+
+    .tweet-scheduled {
+        position: relative;
+        text-align: center;
+    }
+}
