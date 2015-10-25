@@ -92,6 +92,8 @@ div .landing-area {
     background-repeat: no-repeat;
     background-size: 100%;
     margin: 0px;
+    background-color: #000000;
+    border-style: none;
 }
 
 div .landing-area h2, h4 {
