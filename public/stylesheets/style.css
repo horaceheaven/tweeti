@@ -35,13 +35,19 @@ header .navbar-default .navbar-nav a:hover {
 header .navbar-default .navbar-nav .active a {
     font-weight: 700;
     color: #ffffff;
-    background: transparent;
+    background-color: #000000;
     text-shadow: none;
 }
 
 header .navbar-default .navbar-nav .active a:hover {
     color: #ffffff;
-    background: transparent;
+    background-color: #000000;
+    text-shadow: none;
+}
+
+header .navbar-default .navbar-nav .active a:focus {
+    color: #ffffff;
+    background-color: #000000;
     text-shadow: none;
 }
 
