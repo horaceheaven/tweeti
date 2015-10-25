@@ -26,7 +26,8 @@
 
         vm.getScheduledTweets = function() {
             tweetService.getScheduledTweets().then(function(data) {
-                vm.listOfScheduledTweets = data && data.data ? data.data : [];
+                vm.listOfCompletedScheduledTweets = data && data && data.complete ? data.complete : [];
+                vm.listOfDelayedScheduledTweets = data && data && data.delayed ? data.delayed : [];
             });
         };
 

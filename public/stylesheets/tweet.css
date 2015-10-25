@@ -43,3 +43,35 @@
     color: #ffffff;
     text-align: left;
 }
+
+.tweet-list-group-item-heading {
+    position: relative;
+    margin: 10px;
+    text-align: left;
+    font-size: xx-small;
+}
+
+.tweet-list-group-item-text {
+    position: relative;
+    margin: 10px;
+    text-align: left;
+    font-size: medium;
+}
+
+.tweet-schedule-scheduled-title {
+    position: relative;
+    margin: 5px;
+    text-align: center;
+    font-size: medium;
+    color: #cccccc;
+    font-weight: bold;
+}
+
+.tweet-schedule-completed-title {
+    position: relative;
+    margin: 5px;
+    text-align: center;
+    font-size: medium;
+    color: #cccccc;
+    font-weight: bold;
+}

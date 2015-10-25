@@ -34,9 +34,37 @@
         </form>
     </div>
 </div>
-<div class="list-group tweet-list-view">
-    <a ng-repeat="tweet in vm.listOfScheduledTweets" ng-href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">{{tweet.state}}</h4>
-        <p class="list-group-item-text">{{tweet.data.status}}</p>
-    </a>
+
+<div ng-show="vm.listOfDelayedScheduledTweets.length > 0" class="row">
+    <div class="col-sm-12">
+        <h3 class="tweet-schedule-scheduled-title">Scheduled</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="list-group tweet-list-view">
+            <a ng-repeat="tweet in vm.listOfDelayedScheduledTweets" ng-href="#" class="list-group-item">
+                <h4 class="tweet-list-group-item-heading">{{tweet.data.postDateTime | date:"MMMM dd, yyyy 'at' h:mma"}}</h4>
+                <p class="tweet-list-group-item-text">{{tweet.data.status}}</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div ng-show="vm.listOfCompletedScheduledTweets.length > 0" class="row">
+    <div class="col-sm-12">
+        <h3 class="tweet-schedule-completed-title">Completed</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="list-group tweet-list-view">
+            <a ng-repeat="tweet in vm.listOfCompletedScheduledTweets" ng-href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">{{tweet.data.postDateTime}}</h4>
+                <p class="list-group-item-text">{{tweet.data.status}}</p>
+            </a>
+        </div>
+    </div>
 </div>

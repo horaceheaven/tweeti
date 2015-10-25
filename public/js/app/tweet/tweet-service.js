@@ -28,7 +28,9 @@
         };
 
         function getScheduledTweets() {
-            return $http.get('/twitter/user/schedule');
+            return $http.get('/twitter/user/schedule').then(function(response) {
+                return response.data;
+            });
         };
 
         function twitterSignIn() {
