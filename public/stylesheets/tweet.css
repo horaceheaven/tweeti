@@ -21,6 +21,7 @@
 }
 
 .tweet-profile-img {
+    position: relative;
     margin: 10px 10px 10px 50px;
     border-radius: 30px;
 }
@@ -74,4 +75,21 @@
     font-size: medium;
     color: #cccccc;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+    .tweet-profile-img {
+        position: relative;
+        display: block;
+        margin: auto;
+    }
+    .tweet-header-title {
+        position: relative;
+        text-align: center;
+    }
+
+    .tweet-scheduled {
+        position: relative;
+        text-align: center;
+    }
 }
