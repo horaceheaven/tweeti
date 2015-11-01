@@ -16,10 +16,14 @@
   ],
   "dependencies": {
     "angular": "~1.4.6",
+    "angular-material": "~0.11.4",
     "angular-route": "~1.4.6",
     "bootstrap": "~3.3.5",
     "bootstrap-social": "~4.10.1",
     "font-awesome": "fontawesome#~4.4.0",
     "typed.js": "~1.1.1"
+  },
+  "resolutions": {
+    "angular": "~1.4.6"
   }
 }
