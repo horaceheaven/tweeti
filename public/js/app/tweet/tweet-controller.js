@@ -10,7 +10,8 @@
     function TweetController(tweetService, authService) {
         var vm = this;
 
-        vm.tweet = "";
+        vm.scheduleDate = new Date();
+        vm.tweet;
 
         vm.scheduleTweet = function(tweet, postDateTime) {
             if (tweet && postDateTime) {

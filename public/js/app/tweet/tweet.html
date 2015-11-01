@@ -7,6 +7,10 @@
         <h6 class="tweet-scheduled">You have {{'0'}} posts scheduled</h6>
     </div>
 </div>
+
+
+<md-datepicker ng-model="vm.scheduleDate" md-placeholder="Enter date"></md-datepicker>
+
 <div class="row">
     <div class="col-sm-12">
         <form name="tweetForm">
@@ -29,6 +33,7 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdown-menu1">
                     <li><a ng-click="vm.scheduleTweetNow(vm.tweet); vm.getScheduledTweets();">Tweet Now</a></li>
                     <li><a ng-click="vm.scheduleTweet(vm.tweet, Date.now()); vm.getScheduledTweets();">Schedule Tweet</a></li>
+                    <li><a>hifhirfh</a></li>
                 </ul>
             </div>
         </form>

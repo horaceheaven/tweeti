@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Tweeti</title>
-    <link rel='stylesheet' href='/bower/bootstrap/dist/css/bootstrap.min.css' />
-    <link rel='stylesheet' href='/bower/font-awesome/css/font-awesome.min.css' />
-    <link rel='stylesheet' href='/bower/bootstrap-social/bootstrap-social.css' />
-      <link rel='stylesheet' href='/stylesheets/base.css' />
-      <link rel='stylesheet' href='/stylesheets/tweet.css' />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/typed.css' />
+    <link rel='stylesheet' href='/bower/bootstrap/dist/css/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/bower/font-awesome/css/font-awesome.min.css'/>
+    <link rel='stylesheet' href='/stylesheets/typed.css'/>
+    <link rel='stylesheet' href='/stylesheets/base.css'/>
+    <link rel='stylesheet' href='/stylesheets/tweet.css'/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/bower/bootstrap-social/bootstrap-social.css'/>
+    <link rel="stylesheet" href="/bower/angular-material/angular-material.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-  	<header>
-  		<nav class="navbar navbar-default" role="navigation">
-	  		<div class="container">
-	  			<div class="navbar-header">
-	  				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
-	  					<span class="sr-only"></span>
-	  					<span class="icon-bar"></span>
-	  					<span class="icon-bar"></span>
-	  					<span class="icon-bar"></span>
-	  				</button>
-	  				<a class="navbar-brand" href="/#/"><h1>Tweeti</h1></a>
-	  			</div>{{!-- navbar header --}}
-	  			<div class="collapse navbar-collapse" id="collapse">
-	  				<ul class="nav navbar-nav navbar-right">
-	  					<li><a href="/#/"><i class="fa fa-home"></i> Home</a></li>
-                        <li><a href="/#/post"><i class="fa fa-tachometer"></i> DashBoard</a></li>
-                        {{#if isAuth}}
-                            <li><a href="/auth/logout"><i class="fa fa-twitter"></i> Logout</a></li>
-                        {{else}}
-                            <li><a href="/auth/twitter"><i class="fa fa-twitter"></i>
-                                Sign-In with Twitter
-                            </a></li>
-                        {{/if}}
-	  				</ul>
-	  			</div>{{!-- collapse navbar-collapse --}}
-	  		</div>
-  		</nav>  		
-  	</header>
-    {{{body}}}
-    <!--<footer>-->
-    	<!--<div class="content container-fluid">-->
-    		<!--<div class="row footer-area">-->
-                <!--<nav class="navbar navbar-default" role="navigation">-->
-                    <!--<ul class="nav navbar-nav navbar-right">-->
-                        <!--<li><a href="#">Terms of use</a></li>-->
-                        <!--<li><a href="#">Privacy policy</a></li>-->
-                    <!--</ul>-->
-                <!--</nav>-->
-            <!--</div>-->
-    	<!--</div>{{!-- content container-fluid --}}-->
-    <!--</footer>-->
-  </body>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#/"><h1>Tweeti</h1></a>
+            </div>{{!-- navbar header --}}
+            <div class="collapse navbar-collapse" id="collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/#/"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="/#/post"><i class="fa fa-tachometer"></i> DashBoard</a></li>
+                    {{#if isAuth}}
+                        <li><a href="/auth/logout"><i class="fa fa-twitter"></i> Logout</a></li>
+                    {{else}}
+                        <li><a href="/auth/twitter"><i class="fa fa-twitter"></i>
+                            Sign-In with Twitter
+                        </a></li>
+                    {{/if}}
+                </ul>
+            </div>{{!-- collapse navbar-collapse --}}
+        </div>
+    </nav>
+</header>
+{{{body}}}
+<!--<footer>-->
+<!--<div class="content container-fluid">-->
+<!--<div class="row footer-area">-->
+<!--<nav class="navbar navbar-default" role="navigation">-->
+<!--<ul class="nav navbar-nav navbar-right">-->
+<!--<li><a href="#">Terms of use</a></li>-->
+<!--<li><a href="#">Privacy policy</a></li>-->
+<!--</ul>-->
+<!--</nav>-->
+<!--</div>-->
+<!--</div>{{!-- content container-fluid --}}-->
+<!--</footer>-->
+</body>
 </html>
