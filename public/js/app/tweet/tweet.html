@@ -4,7 +4,13 @@
     </div>
     <div class="col-sm-11">
         <h4 class="tweet-header-title">Your Tweet Dash Board</h4>
-        <h6 class="tweet-scheduled">You have {{'0'}} posts scheduled</h6>
+        <h6 class="tweet-scheduled">
+            <ng-pluralize count="vm.listOfDelayedScheduledTweets.length"
+                          when="{'0': 'You have {} post scheduled :(',
+                            '1': 'You have 1 post scheduled',
+                            'other': 'You have {} posts scheduled'}">
+            </ng-pluralize>
+        </h6>
     </div>
 </div>
 <div class="row">
