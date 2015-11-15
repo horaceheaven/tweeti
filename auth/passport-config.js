@@ -1,4 +1,5 @@
 'use strict';
+var config = require('../config/config').get(process.env.NODE_ENV);
 
 module.exports = function() {
 	var passport = require('passport');
@@ -8,7 +9,7 @@ module.exports = function() {
 	passport.use(new TwitterStrategy({
 		consumerKey: process.env.TWITTER_CONSUMER_KEY,
 		consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-		callbackUrl: 'http://127.0.0.1:3000/auth/twitter/callback'
+		callbackUrl: config.twitterCallBackUrl
 	}, function(token, tokenSecret, profile, done) {
 		userService.findUserById(profile.id, function(err, user) {
 			if (err) { return done(err, null); }
