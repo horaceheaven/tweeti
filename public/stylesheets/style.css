@@ -133,6 +133,19 @@ div .landing-area-heading {
 
 /* End of Landing Page Styles */
 
+@media only screen and (max-width : 420px) {
+    .btn-twitter-sign-in {
+        margin-top: 60px;
+        width: 300px;
+        height: 50px;
+    }
+
+    div .landing-area-heading {
+        font-size: 2em;
+    }
+}
+
+
 @media only screen and (max-width: 768px) {
     header .navbar-collapse.in {
         background-color: rgba(0, 0, 0, 0.5);
