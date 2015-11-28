@@ -33,8 +33,8 @@
                     <span class="sr-only">Add to Queue</span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdown-menu1">
-                    <li><a ng-click="vm.scheduleTweetNow(vm.tweet); vm.getScheduledTweets();">Tweet Now</a></li>
-                    <li><a ng-click="vm.scheduleTweet(vm.tweet, Date.now()); vm.getScheduledTweets();">Schedule Tweet</a></li>
+                    <li><a ng-click="vm.tweetNow(vm.tweet)">Tweet Now</a></li>
+                    <li><a ng-click="vm.tweetLater(vm.tweet, Date.now())">Schedule Tweet</a></li>
                 </ul>
             </div>
         </form>

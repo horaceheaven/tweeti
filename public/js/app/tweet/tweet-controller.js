@@ -14,20 +14,16 @@
 
         vm.scheduleTweet = function(tweet, postDateTime) {
             if (tweet && postDateTime) {
-                tweetService.scheduleTweet(tweet, postDateTime);
+                return tweetService.scheduleTweet(tweet, postDateTime);
             } else {
                 // TODO: add a flash statement
             }
         };
 
-        vm.scheduleTweetNow = function(tweet) {
-            vm.scheduleTweet(tweet, Date.now());
-        };
-
         vm.getScheduledTweets = function() {
             tweetService.getScheduledTweets().then(function(data) {
-                vm.listOfCompletedScheduledTweets = data && data && data.complete ? data.complete : [];
-                vm.listOfDelayedScheduledTweets = data && data && data.delayed ? data.delayed : [];
+                vm.listOfCompletedScheduledTweets = data && data.complete ? data.complete : [];
+                vm.listOfDelayedScheduledTweets = data && data.delayed ? data.delayed : [];
             });
         };
 
@@ -35,7 +31,27 @@
             authService.getUserDetails().then(function(data) {
                 vm.username = data && data.username ? data.username : '';
                 vm.userPhoto = data && data.photos && data.photos.length > 0 ? data.photos[0].value : '';
-                console.log(vm.userPhoto)
+            });
+        };
+
+        vm.tweetNow = function(tweet) {
+            var postDate = Date.now();
+            vm.scheduleTweet(tweet, postDate).then(function(data) {
+                if (data.status === 200) {
+                    vm.listOfCompletedScheduledTweets.unshift({data: {postDateTime: postDate, status: tweet}})
+                } else {
+                    // TODO: add a flash statement
+                }
+            });
+        };
+
+        vm.tweetLater = function(tweet, postDate) {
+            vm.scheduleTweet(tweet, postDate).then(function(data) {
+                if (data.status === 200) {
+                    vm.listOfDelayedScheduledTweets.unshift({data: {postDateTime: postDate, status: tweet}})
+                } else {
+                    // TODO: add a flash statement
+                }
             });
         };
 

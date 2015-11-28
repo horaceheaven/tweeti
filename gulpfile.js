@@ -14,7 +14,7 @@ gulp.task('start', function() {
 	nodemon({
 		script: 'bin/www',
 		ext: 'js',
-		ignore: ['app.min.js'],
+		ignore: ['public/js/**/*.js'],
 		tasks: ['lint', 'uglify-js'],
 		env: { 'NODE_ENV': 'development' }
 	});

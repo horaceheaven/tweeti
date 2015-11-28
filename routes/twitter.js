@@ -33,6 +33,7 @@ router.get('/user/schedule', function (req, res) {
 });
 
 router.post('/schedule', function (req, res) {
+    // TODO: more thorough validation on params
     req.checkBody('status').notEmpty();
     req.checkBody('postDate').notEmpty().isInt();
 
