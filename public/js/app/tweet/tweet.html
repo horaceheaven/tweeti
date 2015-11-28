@@ -26,17 +26,18 @@
                     {{ 120 - tweetForm.tweet.$viewValue.length }} characters remaining</p>
             </div>
             <div class="btn-group tweet-btn">
-                <button  ng-disabled="!tweetForm.tweet.$valid" type="button" class="btn btn-default btn-lg">Add to Queue</button>
+                <button  ng-disabled="!tweetForm.tweet.$valid" type="button" class="btn btn-default btn-lg">Schedule Tweet</button>
                 <button ng-disabled="!tweetForm.tweet.$valid" type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" id="dropdown-menu1"
                         aria-haspopup="true" aria-expanded="false">
                     <span class="caret"></span>
-                    <span class="sr-only">Add to Queue</span>
+                    <span class="sr-only">Schedule Tweet</span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdown-menu1">
-                    <li><a ng-click="vm.tweetNow(vm.tweet)">Tweet Now</a></li>
-                    <li><a ng-click="vm.tweetLater(vm.tweet, Date.now())">Schedule Tweet</a></li>
+                    <li><a ng-click="vm.tweetLater(vm.tweet, Date.now())">Select date & time</a></li>
                 </ul>
             </div>
+            <button type="button" class="btn btn-default btn-lg tweet-btn"
+                    ng-disabled="!tweetForm.tweet.$valid" ng-click="vm.tweetNow(vm.tweet)">Tweet Now</button>
         </form>
     </div>
 </div>
