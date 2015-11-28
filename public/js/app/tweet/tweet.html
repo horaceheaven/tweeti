@@ -52,8 +52,11 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="tweet-list-group tweet-list-view">
-            <a ng-repeat="tweet in vm.listOfDelayedScheduledTweets" ng-href="#" class="list-group-item">
-                <h4 class="tweet-list-group-item-heading">{{tweet.data.postDateTime | date:"MMMM dd, yyyy 'at' h:mma"}}</h4>
+            <a ng-repeat="tweet in vm.listOfDelayedScheduledTweets" ng-href="" class="list-group-item">
+                <h4 class="tweet-list-group-item-heading"
+                    data-toggle="tooltip" data-placement="left"
+                    title="{{tweet.data.postDateTime | date:'MMMM dd, yyyy h:mma'}}">
+                    {{tweet.data.postDateTime | relativeDateTime}} ({{tweet.data.postDateTime | date:'MMMM dd, yyyy h:mma'}})</h4>
                 <p class="tweet-list-group-item-text">{{tweet.data.status}}</p>
             </a>
         </div>
@@ -69,8 +72,10 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="tweet-list-group tweet-list-view">
-            <a ng-repeat="tweet in vm.listOfCompletedScheduledTweets" ng-href="#" class="list-group-item">
-                <h4 class="tweet-list-group-item-heading">{{tweet.data.postDateTime | date:"MMMM dd, yyyy 'at' h:mma"}}</h4>
+            <a ng-repeat="tweet in vm.listOfCompletedScheduledTweets" ng-href="" class="list-group-item">
+                <h4 class="tweet-list-group-item-heading" data-toggle="tooltip"
+                    data-placement="left" title="{{tweet.data.postDateTime | date:'MMMM dd, yyyy h:mma'}}">
+                    {{tweet.data.postDateTime | relativeDateTime}} ({{tweet.data.postDateTime | date:'MMMM dd, yyyy h:mma'}})</h4>
                 <p class="tweet-list-group-item-text">{{tweet.data.status}}</p>
             </a>
         </div>

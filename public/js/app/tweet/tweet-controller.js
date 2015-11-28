@@ -11,10 +11,10 @@
         var vm = this;
 
         vm.tweet = "";
-        vm.tweetDate = "";
+        vm.tweetDate = moment().add(1, 'h').format("MM/DD/YYYY h:mm A");
 
         vm.scheduleTweet = function(tweet, postDateTime) {
-            console.log(postDateTime)
+            var postDateTime = moment(postDateTime).valueOf();
             if (tweet && postDateTime) {
                 return tweetService.scheduleTweet(tweet, postDateTime);
             } else {
@@ -37,7 +37,7 @@
         };
 
         vm.tweetNow = function(tweet) {
-            var postDate = Date.now();
+            var postDate = moment().valueOf();
             vm.scheduleTweet(tweet, postDate).then(function(data) {
                 if (data.status === 200) {
                     vm.listOfCompletedScheduledTweets.unshift({data: {postDateTime: postDate, status: tweet}})
@@ -48,7 +48,7 @@
         };
 
         vm.tweetLater = function(tweet, postDate) {
-            var postDate = new Date(postDate).getTime();
+            var postDate = moment(postDate).valueOf();
             vm.scheduleTweet(tweet, postDate).then(function(data) {
                 if (data.status === 200) {
                     vm.listOfDelayedScheduledTweets.unshift({data: {postDateTime: postDate, status: tweet}})
