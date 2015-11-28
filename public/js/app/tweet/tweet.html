@@ -6,7 +6,7 @@
         <h4 class="tweet-header-title">Your Tweet Dash Board</h4>
         <h6 class="tweet-scheduled">
             <ng-pluralize count="vm.listOfDelayedScheduledTweets.length"
-                          when="{'0': 'You have {} post scheduled :(',
+                          when="{'0': 'You have {} post scheduled :-[',
                             '1': 'You have 1 post scheduled',
                             'other': 'You have {} posts scheduled'}">
             </ng-pluralize>
@@ -18,24 +18,26 @@
         <form name="tweetForm">
             <div class="input-group tweet-input-field">
                 <span class="input-group-addon tweet-handle" id="basic-addon1">@{{vm.username}}</span>
-            <textarea name="tweet" ng-model="vm.tweet" ng-minlength="1" ng-maxlength="120" ng-change="" required type="text" class="form-control input-lg" placeholder="Type your tweet here..."
+            <textarea name="tweet" ng-model="vm.tweet" ng-minlength="1" ng-maxlength="120" ng-change="" ng-required="true" type="text" class="form-control input-lg" placeholder="Type your tweet here..."
                       aria-describedby="basic-addon1"/>
             </div>
             <div>
                 <p class="tweet-count" ng-class="{red: tweetForm.tweet.$viewValue.length > 120}">
                     {{ 120 - tweetForm.tweet.$viewValue.length }} characters remaining</p>
             </div>
-            <div class="btn-group tweet-btn">
-                <button  ng-disabled="!tweetForm.tweet.$valid" type="button" class="btn btn-default btn-lg">Add to Queue</button>
-                <button ng-disabled="!tweetForm.tweet.$valid" type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" id="dropdown-menu1"
-                        aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Add to Queue</span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdown-menu1">
-                    <li><a ng-click="vm.tweetNow(vm.tweet)">Tweet Now</a></li>
-                    <li><a ng-click="vm.tweetLater(vm.tweet, Date.now())">Schedule Tweet</a></li>
-                </ul>
+
+            <div class="tweet-btn-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                    <input name="scheduledDate" ng-model="vm.tweetDate" ng-required="true" type='datetime' class="form-control" />
+                </div>
+
+                <button  ng-disabled="!tweetForm.tweet.$valid || !tweetForm.scheduledDate.$valid"
+                         type="button" class="btn btn-default btn-lg" ng-click="vm.tweetLater(vm.tweet, vm.tweetDate)">Schedule Tweet</button>
+                <button type="button" class="btn btn-default btn-lg tweet-btn"
+                    ng-disabled="!tweetForm.tweet.$valid" ng-click="vm.tweetNow(vm.tweet)">Tweet Now Instead</button>
             </div>
         </form>
     </div>
@@ -74,3 +76,9 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+</script>

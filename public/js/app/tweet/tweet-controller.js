@@ -11,8 +11,10 @@
         var vm = this;
 
         vm.tweet = "";
+        vm.tweetDate = "";
 
         vm.scheduleTweet = function(tweet, postDateTime) {
+            console.log(postDateTime)
             if (tweet && postDateTime) {
                 return tweetService.scheduleTweet(tweet, postDateTime);
             } else {
@@ -21,14 +23,14 @@
         };
 
         vm.getScheduledTweets = function() {
-            tweetService.getScheduledTweets().then(function(data) {
+            return tweetService.getScheduledTweets().then(function(data) {
                 vm.listOfCompletedScheduledTweets = data && data.complete ? data.complete : [];
                 vm.listOfDelayedScheduledTweets = data && data.delayed ? data.delayed : [];
             });
         };
 
         vm.getUserDetails = function() {
-            authService.getUserDetails().then(function(data) {
+            return authService.getUserDetails().then(function(data) {
                 vm.username = data && data.username ? data.username : '';
                 vm.userPhoto = data && data.photos && data.photos.length > 0 ? data.photos[0].value : '';
             });
@@ -46,6 +48,7 @@
         };
 
         vm.tweetLater = function(tweet, postDate) {
+            var postDate = new Date(postDate).getTime();
             vm.scheduleTweet(tweet, postDate).then(function(data) {
                 if (data.status === 200) {
                     vm.listOfDelayedScheduledTweets.unshift({data: {postDateTime: postDate, status: tweet}})
