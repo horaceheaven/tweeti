@@ -11,7 +11,7 @@
         var vm = this;
 
         vm.tweet = "";
-        vm.tweetDate = "";
+        vm.tweetDate = moment().format("MM/DD/YYYY h:mm A");
 
         vm.scheduleTweet = function(tweet, postDateTime) {
             console.log(postDateTime)
