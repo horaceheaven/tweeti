@@ -24,30 +24,19 @@ header .navbar-default {
 }
 
 header .navbar-default .navbar-nav a {
-    color: #ffffff;
     padding: 5px 8px;
-}
-
-header .navbar-default .navbar-nav a:hover {
-    color: #ffffff;
 }
 
 header .navbar-default .navbar-nav .active a {
     font-weight: 700;
-    color: #ffffff;
-    background-color: #000000;
     text-shadow: none;
 }
 
 header .navbar-default .navbar-nav .active a:hover {
-    color: #ffffff;
-    background-color: #000000;
     text-shadow: none;
 }
 
 header .navbar-default .navbar-nav .active a:focus {
-    color: #ffffff;
-    background-color: #000000;
     text-shadow: none;
 }
 
@@ -62,22 +51,6 @@ header .navbar-brand h1 {
     margin: 0px;
     font-size: 1.8em;
     font-weight: bold;
-}
-
-header .navbar-toggle {
-  background-color: #000000;
-}
-
-header .navbar-default .navbar-toggle:hover {
-    background-color: #000000;
-}
-
-header .navbar-default .navbar-toggle:focus {
-    background-color: #000000;
-}
-
-header .navbar-default .navbar-toggle .icon-bar {
-    background-color: white;
 }
 
 /* End of Header */
