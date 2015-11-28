@@ -11,8 +11,10 @@
         var vm = this;
 
         vm.tweet = "";
+        vm.tweetDate = "";
 
         vm.scheduleTweet = function(tweet, postDateTime) {
+            console.log(postDateTime)
             if (tweet && postDateTime) {
                 return tweetService.scheduleTweet(tweet, postDateTime);
             } else {
@@ -46,6 +48,7 @@
         };
 
         vm.tweetLater = function(tweet, postDate) {
+            var postDate = new Date(postDate).getTime();
             vm.scheduleTweet(tweet, postDate).then(function(data) {
                 if (data.status === 200) {
                     vm.listOfDelayedScheduledTweets.unshift({data: {postDateTime: postDate, status: tweet}})
