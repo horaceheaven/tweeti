@@ -41,6 +41,7 @@
             vm.scheduleTweet(tweet, postDate).then(function(data) {
                 if (data.status === 200) {
                     vm.listOfCompletedScheduledTweets.unshift({data: {postDateTime: postDate, status: tweet}})
+                    vm.tweet = '';
                 } else {
                     // TODO: add a flash statement
                 }
@@ -52,6 +53,7 @@
             vm.scheduleTweet(tweet, postDate).then(function(data) {
                 if (data.status === 200) {
                     vm.listOfDelayedScheduledTweets.unshift({data: {postDateTime: postDate, status: tweet}})
+                    vm.tweet = '';
                 } else {
                     // TODO: add a flash statement
                 }
