@@ -20,9 +20,10 @@
                 message: vm.message
             };
 
-            contactService.submitInfo(info).then(function() {
+            contactService.submitInfo(info).then(function(result) {
+                console.log(JSON.stringify(result));
                 // TODO: add flash statement
-            }, function() {
+            }, function(err) {
                 // TODO: add flash statement on err
             });
         };
