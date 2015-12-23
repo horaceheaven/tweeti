@@ -3,19 +3,23 @@ var config = {};
 config = {
     production: {
         mongoURI: 'mongodb://localhost:27017/tweeti',
-        twitterCallBackUrl: 'http://tweeti.horaceheaven.com/auth/twitter/callback'
+        twitterCallBackUrl: 'http://tweeti.horaceheaven.com/auth/twitter/callback',
+        contactEmail: 'horaceheaven@gmail.com'
     },
     development: {
         mongoURI: 'mongodb://localhost:27017/tweeti',
-        twitterCallBackUrl: 'http://127.0.0.1:3000/auth/twitter/callback'
+        twitterCallBackUrl: 'http://127.0.0.1:3000/auth/twitter/callback',
+        contactEmail: 'horaceheaven@gmail.com'
     },
     test: {
         mongoURI: 'mongodb://localhost:27017/tweeti',
-        twitterCallBackUrl: 'http://127.0.0.1:3000/auth/twitter/callback'
+        twitterCallBackUrl: 'http://127.0.0.1:3000/auth/twitter/callback',
+        contactEmail: 'horaceheaven@gmail.com'
     },
     default: {
         mongoURI: 'mongodb://localhost:27017/tweeti',
-        twitterCallBackUrl: 'http://127.0.0.1:3000/auth/twitter/callback'
+        twitterCallBackUrl: 'http://127.0.0.1:3000/auth/twitter/callback',
+        contactEmail: 'horaceheaven@gmail.com'
     }
 };
 

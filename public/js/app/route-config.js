@@ -37,6 +37,11 @@
                 access: {
                     loginRequired: true
                 }
+			})
+			.when('/contact', {
+				templateUrl: '/js/app/contact/contact-form.html',
+				controller: 'ContactController',
+				controllerAs: 'vm'
 			});
 	}
 
