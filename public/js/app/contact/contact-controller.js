@@ -20,13 +20,11 @@
                 message: vm.message
             };
 
-            var isSuccessful = contactService.submitInfo(info);
-
-            if (isSuccessful) {
-
-            } else {
-
-            }
+            contactService.submitInfo(info).then(function() {
+                // TODO: add flash statement
+            }, function() {
+                // TODO: add flash statement on err
+            });
         };
     }
 }());
