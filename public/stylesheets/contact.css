@@ -1,0 +1,21 @@
+.contact-form {
+    margin: 10px;
+}
+
+.contact-input-field {
+    border-radius: 0px;
+}
+
+.contact-submit-btn {
+    margin: 10px;
+}
+
+.contact-header-title {
+    position: relative;
+    color: #000000;
+    text-align: left;
+    font-weight: bolder;
+}
+
+@media only screen and (max-width: 768px) {
+}
