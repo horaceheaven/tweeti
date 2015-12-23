@@ -1,7 +1,6 @@
 'use strict';
 
 var gulp = require('gulp');
-var install = require('gulp-install');
 var nodemon = require('gulp-nodemon');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
