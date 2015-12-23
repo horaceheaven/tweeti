@@ -6,14 +6,10 @@
     border-radius: 0px;
 }
 
-.contact-submit-btn {
-    margin: 10px;
-    border-radius: 0px;
-}
-
 .contact-header-title {
     position: relative;
-    color: #000000;
+    margin: 25px;
+    color: #ffffff;
     text-align: left;
     font-weight: bolder;
 }
