@@ -41,7 +41,10 @@
 			.when('/contact', {
 				templateUrl: '/js/app/contact/contact-form.html',
 				controller: 'ContactController',
-				controllerAs: 'vm'
+				controllerAs: 'vm',
+				access: {
+					loginRequired: false
+				}
 			});
 	}
 
