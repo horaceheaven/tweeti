@@ -16,7 +16,8 @@
         };
 
         function submitInfo (info) {
-            return $http.post('/contact', info);
+            console.log(JSON.stringify(info));
+            return $http.post('/contact/info', info);
         };
     };
 }());

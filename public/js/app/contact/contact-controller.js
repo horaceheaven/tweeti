@@ -9,13 +9,13 @@
 
     function ContactController(contactService) {
         var vm = this;
-        vm.fullname = "";
+        vm.fullName = "";
         vm.email = "";
         vm.message = "";
 
         vm.submit = function() {
             var info = {
-                fullName: vm.fullname,
+                fullName: vm.fullName,
                 email: vm.email,
                 message: vm.message
             };

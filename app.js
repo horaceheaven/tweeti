@@ -21,6 +21,7 @@ var restrict = require('./auth/restrict');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./routes/auth');
+var contact = require('./routes/contact');
 var twitter = require('./routes/twitter');
 
 passportConfig();
@@ -61,6 +62,7 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/auth', auth);
 app.use('/users', users);
+app.use('/contact', contact);
 app.use('/twitter', restrict, twitter);
 
 // catch 404 and forward to error handler
